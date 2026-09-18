@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!--
+==================================================================================
+  柚子科普落地页 · 可自由编辑版（单文件，无外部依赖，双击即可打开）
+==================================================================================
+
+  【改文字】全部是中文，直接搜索你要改的那句话，改完保存、刷新浏览器即可。
+
+  【换图片】把图片放进同目录的 images/ 文件夹，用下面这些文件名命名就行：
+     images/01-hero.jpg      1600×1000  首屏主图：整颗柚子 + 切开的果肉
+     images/02-cut.jpg       1200×1200  果肉特写（方图，用于「3秒读懂」）
+     images/03-orchard.jpg   1200×800   枝头 / 果园 / 采摘
+     images/04-family.jpg    1200×800   家庭分享场景：大人孩子一起吃
+     images/05-office.jpg    1200×800   办公室下午茶 / 便当盒
+     images/06-active.jpg    1200×800   运动、控糖、轻食场景
+     images/07-peel.jpg      1200×800   挑选 / 剥皮 / 保存
+     images/08-drink.jpg     1200×800   柚子茶、气泡水、沙拉等吃法
+   文件名对不上时不会报错，页面会显示一个虚线「图片位」并提示建议尺寸，
+   你把照片放进去、名字改对，刷新就自动替换掉了。
+
+  【改配色】见下面 <style> 里的 :root，改色值即全站生效。
+  【改品牌名】搜索「柚子科普馆」。
+  【改联系方式】搜索「联系我们」，在页脚。
+
+  【变成真正的网址】把这个 index.html 和 images 文件夹一起上传到任意静态托管
+   （GitHub Pages / Vercel / 阿里云 OSS / 宝塔 / 任何虚拟主机），index.html 即首页。
+
+  【发布前请核对】营养数据均为公开参考值（已标注来源），会随品种、产地、检测方式
+   变化，正式对外发布前建议按你自己的检测报告或官方最新版本核一遍。
+==================================================================================
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>柚子科普馆 | 一颗柚子的营养、挑选与吃法，还有你不能忽略的「硒」</title>
+<meta name="description" content="柚子怎么挑、怎么存、怎么吃？维生素C、膳食纤维、钾到底有什么好处？以及被低估的微量元素「硒」对人体的重要性——一份面向20~50岁人群的通俗科普。">
+<meta name="theme-color" content="#2F6B4F">
+
+<!-- 分享到微信/朋友圈时的卡片信息，可自行替换 -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="柚子科普馆｜一颗柚子的营养、挑选与吃法">
+<meta property="og:description" content="低热量、高水分、有纤维，还顺带聊聊被低估的微量元素「硒」。">
+<meta property="og:image" content="images/01-hero.jpg">
+
+<style>
+/* ============================================================
+   1) 全站配色与尺寸：改这里就够了
+   ============================================================ */
+:root{
+  --brand:        #2F6B4F;   /* 主色：柚叶深绿 */
+  --brand-soft:   #7FB069;   /* 辅助绿：果皮 */
+  --accent:       #F5C542;   /* 果肉黄：强调色 */
+  --accent-soft:  #FFF3D0;   /* 浅黄底 */
+  --warm:         #F08A6C;   /* 柚瓣橙：点缀 */
+  --bg:           #FBF9F4;   /* 页面底色 */
+  --card:         #FFFFFF;   /* 卡片底 */
+  --ink:          #1F2A24;   /* 正文深色 */
+  --ink-2:        #5C6B62;   /* 次要文字 */
+  --line:         #E7E2D6;   /* 分割线 */
+  --radius:       18px;
+  --maxw:         1120px;
+  --shadow:       0 10px 30px rgba(31,42,36,.08);
+  --shadow-lg:    0 20px 50px rgba(31,42,36,.14);
+}
+
+/* ============================================================
+   2) 基础排版
+   ============================================================ */
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB",
+              "Microsoft YaHei","Source Han Sans SC","Noto Sans SC",sans-serif;
+  font-size:16px; line-height:1.85;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; display:block}
+a{color:var(--brand); text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{line-height:1.35; margin:0 0 .6em; font-weight:800; letter-spacing:.2px}
+h2{font-size:clamp(24px,3.2vw,34px)}
+h3{font-size:clamp(18px,2.2vw,22px)}
+p{margin:0 0 1em}
+ul,ol{margin:0 0 1em; padding-left:1.25em}
+li{margin:.35em 0}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+.section{padding:76px 0}
+.section.tight{padding:56px 0}
+.lead{font-size:clamp(15px,1.7vw,17px); color:var(--ink-2)}
+.eyebrow{
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:13px; font-weight:700; color:var(--brand);
+  background:var(--accent-soft); border:1px solid #F0E2B4;
+  padding:6px 14px; border-radius:999px; margin-bottom:16px;
+}
+.small{font-size:13px; color:var(--ink-2)}
+.center{text-align:center}
+.sec-head{max-width:760px; margin-bottom:36px}
+.sec-head.center{margin-left:auto; margin-right:auto; max-width:880px}
+
+/* ============================================================
+   3) 布局工具
+   ============================================================ */
+.grid{display:grid; gap:20px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:960px){
+  .g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:640px){
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .section{padding:52px 0}
+}
+
+.card{
+  background:var(--card); border:1px solid var(--line);
+  border-radius:var(--radius); padding:24px; box-shadow:var(--shadow);
+}
+.card.flat{box-shadow:none}
+
+/* ============================================================
+   4) 图片位：没放图片时显示虚线占位框（自动适配，不用改代码）
+   ============================================================ */
+.pic{
+  position:relative; overflow:hidden; border-radius:var(--radius);
+  background:
+    repeating-linear-gradient(45deg,#F2EEE3 0 14px,#F7F4EC 14px 28px);
+  border:1px dashed #D9D2C0;
+  min-height:220px;
+}
+.pic img{
+  position:relative; z-index:2;              /* 图片盖在占位提示上 */
+  width:100%; height:100%; object-fit:cover; display:block;
+}
+.pic .pic-hint{
+  position:absolute; inset:0; z-index:1;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:6px; padding:20px; text-align:center;
+  color:#8C8672; font-size:13px; line-height:1.6;
+}
+.pic .pic-hint b{font-size:14px; color:#6E6A58}
+.pic.h-420{height:420px}
+.pic.h-360{height:360px}
+.pic.h-280{height:280px}
+.pic.h-240{height:240px}
+.pic.h-220{height:220px}
+@media(max-width:640px){
+  .pic.h-420{height:300px}
+  .pic.h-360,.pic.h-280{height:240px}
+}
+
+/* ============================================================
+   5) 顶部导航
+   ============================================================ */
+.topbar{
+  background:var(--brand); color:#EAF4EE; font-size:13px;
+  padding:9px 0; text-align:center; letter-spacing:.3px;
+}
+.topbar span{opacity:.92}
+.nav{
+  position:sticky; top:0; z-index:50;
+  background:rgba(251,249,244,.92); backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  display:flex; align-items:center; gap:18px;
+  max-width:var(--maxw); margin:0 auto; padding:12px 20px;
+  min-width:0;
+}
+.brand{
+  display:flex; align-items:center; gap:10px; font-weight:800; font-size:17px;
+  white-space:nowrap; flex:0 0 auto;
+}
+.brand .dot{
+  width:26px; height:26px; border-radius:50%;
+  background:radial-gradient(circle at 32% 30%, #FFF0B8, var(--accent) 55%, #E9A93C);
+  box-shadow:inset 0 0 0 2px #fff;
+}
+.nav-links{
+  display:flex; gap:4px; overflow-x:auto; scrollbar-width:none;
+  margin-left:auto; padding:2px; min-width:0; flex:0 1 auto;
+}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{
+  color:var(--ink-2); font-size:14px; font-weight:600;
+  padding:7px 12px; border-radius:999px; white-space:nowrap;
+}
+.nav-links a:hover{background:#EFEADF; color:var(--brand); text-decoration:none}
+@media(max-width:720px){
+  .nav-inner{padding:10px 16px; gap:10px}
+  .brand{font-size:15px}
+}
+
+/* ============================================================
+   6) 首屏
+   ============================================================ */
+.hero{
+  padding:64px 0 56px;
+  background:
+    radial-gradient(900px 420px at 88% -8%, #FFF3D0 0%, rgba(255,243,208,0) 62%),
+    radial-gradient(700px 380px at -5% 5%, #E6F0E6 0%, rgba(230,240,230,0) 60%);
+}
+.hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:44px; align-items:center}
+@media(max-width:900px){
+  .hero{padding:44px 0 40px}
+  .hero-grid{grid-template-columns:1fr; gap:28px}
+}
+.hero h1{
+  font-size:clamp(27px,4.6vw,46px); letter-spacing:-.5px; margin-bottom:18px;
+}
+.hero h1 em{
+  font-style:normal; color:var(--brand);
+  background:linear-gradient(transparent 62%, var(--accent) 62%);
+  padding:0 .08em;
+}
+.hero h1 .h1-sub{
+  display:block; margin-top:8px;
+  font-size:.6em; color:var(--ink-2); letter-spacing:0;
+}
+.hero .sub{font-size:clamp(15px,1.9vw,18px); color:var(--ink-2); max-width:560px}
+.chips{display:flex; flex-wrap:wrap; gap:10px; margin:22px 0 26px}
+.chip{
+  display:flex; align-items:center; gap:8px;
+  background:#fff; border:1px solid var(--line); border-radius:999px;
+  padding:9px 16px; font-size:14px; font-weight:700; box-shadow:var(--shadow);
+}
+.chip i{
+  width:8px; height:8px; border-radius:50%; background:var(--brand-soft);
+  display:inline-block;
+}
+.chip.alt i{background:var(--accent)}
+.chip.alt2 i{background:var(--warm)}
+.cta-row{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+.btn{
+  display:inline-block; background:var(--brand); color:#fff !important;
+  padding:13px 26px; border-radius:999px; font-weight:700; font-size:15px;
+  box-shadow:0 8px 20px rgba(47,107,79,.28); text-decoration:none !important;
+}
+.btn:hover{background:#265944}
+.btn.ghost{
+  background:#fff; color:var(--brand) !important; border:1px solid var(--line);
+  box-shadow:none;
+}
+
+/* ============================================================
+   7) 数据卡
+   ============================================================ */
+.stat{
+  background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+  padding:22px; text-align:left; box-shadow:var(--shadow);
+}
+.stat .num{
+  font-size:clamp(26px,3.4vw,34px); font-weight:900; color:var(--brand);
+  line-height:1.1; letter-spacing:-.5px;
+}
+.stat .num small{font-size:14px; font-weight:700; color:var(--ink-2); margin-left:4px}
+.stat .cap{font-size:14px; font-weight:700; margin-top:8px}
+.stat .note{font-size:12.5px; color:var(--ink-2); margin-top:4px; line-height:1.6}
+
+/* ============================================================
+   8) 「硒」专题：全页视觉重点（深色区）
+   ============================================================ */
+.se{
+  background:
+    radial-gradient(700px 340px at 92% 0%, rgba(245,197,66,.20), rgba(245,197,66,0) 60%),
+    linear-gradient(160deg,#22402F 0%,#2F6B4F 55%,#2B5C46 100%);
+  color:#F2F7F3;
+}
+/* 注意：只让深色区的「标题区」用浅色字，
+   白底卡片（.panel / .flag）里的文字必须保持深色，否则会看不清 */
+.se .sec-head .lead{color:#C9DCD0}
+.panel p, .panel .small, .panel li{color:var(--ink-2)}
+.panel h4, .panel .kv b{color:var(--ink)}
+.flag{color:var(--ink)}
+.flag p, .flag .small{color:#4B4536}
+.se .eyebrow{background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.22); color:#F5E1A6}
+.se-card{
+  background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.16);
+  border-radius:var(--radius); padding:24px; backdrop-filter:blur(4px);
+}
+.se-card h3{color:#fff}
+.se-card p{color:#D3E2D8; margin-bottom:0}
+.se-num{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:34px; height:34px; border-radius:10px; margin-bottom:12px;
+  background:var(--accent); color:#3A2E00; font-weight:900; font-size:16px;
+}
+.panel{
+  background:rgba(255,255,255,.94); color:var(--ink);
+  border-radius:var(--radius); padding:26px; box-shadow:var(--shadow-lg);
+}
+.panel h4{font-size:16px; margin-bottom:12px; color:var(--brand)}
+.kv{display:flex; justify-content:space-between; gap:14px; padding:11px 0; border-bottom:1px dashed #DED8C8}
+.kv:last-child{border-bottom:0}
+.kv span{font-size:14px; color:var(--ink-2)}
+.kv b{font-weight:800; white-space:nowrap}
+.kv b.hi{color:var(--warm)}
+.flag{
+  background:#FFF6E2; border:1px solid #F0DFB0; border-left:5px solid var(--accent);
+  border-radius:12px; padding:18px 20px;
+}
+.flag b{color:#8A6A00}
+.se .flag{background:#FFF8E6; border-color:#EBD79A}
+.warn{
+  background:#FDF0EC; border:1px solid #F4D6CC; border-left:5px solid var(--warm);
+  border-radius:12px; padding:18px 20px; color:#6B2E1D;
+}
+.warn b{color:#B2401F}
+.table-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch; max-width:100%}
+table{width:100%; border-collapse:collapse; font-size:14.5px}
+.scroll-hint{display:none; font-size:12.5px; color:var(--brand); margin:-6px 0 10px}
+/* 手机上不把表格挤扁：让它横向滑动查看，列宽保持可读 */
+@media(max-width:640px){
+  table{min-width:560px}
+  .scroll-hint{display:block}
+}
+th,td{padding:12px 10px; text-align:left; border-bottom:1px solid var(--line)}
+th{font-size:13px; color:var(--ink-2); font-weight:700; background:#FAF7F0}
+tbody tr:last-child td{border-bottom:0}
+
+/* ============================================================
+   9) 人群痛点卡
+   ============================================================ */
+.persona{display:flex; flex-direction:column; height:100%}
+.persona .pt{
+  display:flex; align-items:center; gap:10px; margin-bottom:14px;
+}
+.persona .pt .icon{
+  width:44px; height:44px; border-radius:14px; background:var(--accent-soft);
+  display:flex; align-items:center; justify-content:center; font-size:22px; flex:0 0 auto;
+}
+.persona .pt .age{font-weight:900; font-size:19px}
+.persona .pt .tag{font-size:12.5px; color:var(--ink-2)}
+.quote{
+  background:#F7F5EE; border-radius:12px; padding:14px 16px; font-size:14.5px;
+  color:#4B564E; margin-bottom:16px; position:relative;
+}
+.quote::before{content:"“"; position:absolute; left:4px; top:-4px; font-size:34px; color:#D8D2C0}
+.quote p{margin:0; padding-left:14px}
+.persona dl{margin:0; font-size:14.5px}
+.persona dt{font-weight:800; color:var(--brand); margin-top:12px}
+.persona dd{margin:2px 0 0; color:var(--ink-2)}
+
+/* ============================================================
+   10) 步骤 / 清单
+   ============================================================ */
+.steps{counter-reset:s; display:grid; gap:14px}
+.step{
+  display:flex; gap:16px; background:#fff; border:1px solid var(--line);
+  border-radius:14px; padding:18px 20px; box-shadow:var(--shadow);
+}
+.step::before{
+  counter-increment:s; content:counter(s);
+  flex:0 0 auto; width:32px; height:32px; border-radius:50%;
+  background:var(--brand); color:#fff; font-weight:800; font-size:15px;
+  display:flex; align-items:center; justify-content:center;
+}
+.step .t{font-weight:800; margin-bottom:2px}
+.step .d{font-size:14.5px; color:var(--ink-2)}
+
+.tick{list-style:none; padding:0}
+.tick li{position:relative; padding-left:28px; font-size:15px}
+.tick li::before{
+  content:"✓"; position:absolute; left:0; top:0; color:var(--brand);
+  font-weight:900;
+}
+.cross li::before{content:"×"; color:var(--warm)}
+
+/* ============================================================
+   11) FAQ
+   ============================================================ */
+details{
+  background:#fff; border:1px solid var(--line); border-radius:14px;
+  padding:0 20px; margin-bottom:12px; box-shadow:var(--shadow);
+}
+details[open]{padding-bottom:6px}
+summary{
+  cursor:pointer; list-style:none; padding:18px 0; font-weight:800; font-size:16px;
+  display:flex; justify-content:space-between; gap:16px; align-items:center;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{
+  content:"+"; font-size:22px; color:var(--brand); font-weight:400; line-height:1;
+}
+details[open] summary::after{content:"–"}
+details .a{font-size:15px; color:var(--ink-2); padding-bottom:12px}
+details .a p:last-child{margin-bottom:6px}
+
+/* ============================================================
+   12) 页脚
+   ============================================================ */
+footer{
+  background:#1D2A23; color:#B9C7BE; padding:52px 0 32px; font-size:14px;
+}
+footer h4{color:#fff; font-size:15px}
+footer a{color:#DCE8DF}
+.foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:28px}
+@media(max-width:720px){.foot-grid{grid-template-columns:1fr}}
+.foot-bottom{
+  border-top:1px solid rgba(255,255,255,.12); margin-top:32px; padding-top:20px;
+  font-size:12.5px; color:#8FA096; line-height:1.8;
+}
+.disclaimer{
+  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12);
+  border-radius:12px; padding:16px 18px; margin-top:18px; font-size:12.5px;
+}
+</style>
+</head>
+<body>
+
+<!-- ========== 顶部通栏（可改文案，或整段删除） ========== -->
+<div class="topbar">
+  <span>当季现摘 · 产地直发 · 一个柚子全家分，酸甜刚刚好</span>
+</div>
+
+<!-- ========== 导航（链接对应下方各区块 id，可增删） ========== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="brand"><span class="dot"></span>柚子科普馆</div>
+    <div class="nav-links">
+      <a href="#quick">3秒速览</a>
+      <a href="#nutrition">营养</a>
+      <a href="#selenium">硒</a>
+      <a href="#persona">你的年龄段</a>
+      <a href="#pick">挑选保存</a>
+      <a href="#eat">吃法</a>
+      <a href="#faq">问答</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== 首屏 ========== -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">🍊 一颗柚子的完整说明书</span>
+      <h1>甜得清爽，<em>吃得没负担</em>。
+        <span class="h1-sub">柚子，被低估的日常水果</span>
+      </h1>
+      <p class="sub">
+        水分足、热量低、有膳食纤维，剥开就是一整天的清爽感。
+        这一页把它讲明白：怎么挑、怎么存、一天吃多少，
+        以及那个很多人听说过、却一直没搞懂的微量元素——<b>硒</b>。
+      </p>
+      <div class="chips">
+        <span class="chip"><i></i>约 42 kcal / 100g</span>
+        <span class="chip alt"><i></i>维生素 C 约 23 mg / 100g</span>
+        <span class="chip alt2"><i></i>水分约 89%</span>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="#selenium">先看「硒」为什么重要</a>
+        <a class="btn ghost" href="#persona">按我的年龄看</a>
+      </div>
+      <p class="small" style="margin-top:16px">
+        数值为公开参考值，会随品种、产地、成熟度变化，仅作日常参考。
+      </p>
+    </div>
+
+    <figure class="pic h-420" style="margin:0">
+      <div class="pic-hint">
+        <b>图片位 01</b>
+        images/01-hero.jpg
+        <span>建议 1600×1000 · 整颗柚子与切开的果肉同框</span>
+      </div>
+      <img src="images/01-hero.jpg" alt="整颗柚子与切开的柚子果肉" onerror="this.style.display='none'">
+    </figure>
+  </div>
+</header>
+
+<!-- ========== 3 秒速览 ========== -->
+<section class="section tight" id="quick">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">3 秒速览</span>
+      <h2>先记住四个数，别人问你柚子好在哪，你就答得上</h2>
+      <p class="lead">这四个数是柚子在水果里的「人设」，也是它最实在的地方。</p>
+    </div>
+
+    <div class="grid g4">
+      <div class="stat">
+        <div class="num">≈42<small>kcal / 100g</small></div>
+        <div class="cap">热量低，解馋不心疼</div>
+        <div class="note">200g 果肉大约 84 kcal，约等于一杯奶茶的零头。</div>
+      </div>
+      <div class="stat">
+        <div class="num">≈89<small>% 水分</small></div>
+        <div class="cap">干燥季节的补水水果</div>
+        <div class="note">秋冬口干、空调房里待一天，吃两瓣很实在。</div>
+      </div>
+      <div class="stat">
+        <div class="num">≈23<small>mg 维 C / 100g</small></div>
+        <div class="cap">比苹果高不少</div>
+        <div class="note">维 C 参与胶原蛋白合成与抗氧化，是皮肤和免疫力都需要的营养素。</div>
+      </div>
+      <div class="stat">
+        <div class="num">高<small>膳食纤维</small></div>
+        <div class="cap">饱腹感更强</div>
+        <div class="note">纤维有助肠道蠕动与血糖平稳，也能让你没那么快饿。</div>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-top:24px; align-items:center">
+      <figure class="pic h-280" style="margin:0">
+        <div class="pic-hint">
+          <b>图片位 02</b>
+          images/02-cut.jpg
+          <span>建议 1200×1200 方图 · 果肉特写</span>
+        </div>
+        <img src="images/02-cut.jpg" alt="柚子果肉特写" loading="lazy" onerror="this.style.display='none'">
+      </figure>
+      <div class="card">
+        <h3>柚子不是「糖水」，它其实挺克制</h3>
+        <p class="lead">
+          水果的甜主要来自果糖和葡萄糖。柚子的特点是<b>水分大、单位热量低</b>，
+          酸甜感又明显，所以吃同样的满足感，实际摄入的热量更少一些。
+        </p>
+        <p class="small">
+          但「低热量」不等于「随便吃」。具体每天吃多少，见下面的
+          <a href="#faq">常见问答</a>。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 营养 ========== -->
+<section class="section" id="nutrition" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">营养拆解</span>
+      <h2>柚子里到底有什么？把「好处」拆成看得懂的成分</h2>
+      <p class="lead">不谈玄学，柚子被认可的价值基本就集中在下面几类成分。</p>
+    </div>
+
+    <div class="grid g3">
+      <div class="card">
+        <h3>① 维生素 C</h3>
+        <p>参与胶原蛋白合成、抗氧化防御，也帮助铁的吸收。成年人每天需要 100mg 左右，水果是主要来源之一。</p>
+        <p class="small">一整个柚子的果肉通常能提供可观的维 C，具体取决于品种和新鲜度。</p>
+      </div>
+      <div class="card">
+        <h3>② 膳食纤维</h3>
+        <p>果肉里那些不容易咬断的「筋」和细丝就是纤维。它不被消化吸收，却能让你更饱、排便更顺。</p>
+        <p class="small">小提示：别把白瓤和细纤维全撕干净，那部分恰恰有价值。</p>
+      </div>
+      <div class="card">
+        <h3>③ 钾</h3>
+        <p>钾是维持体液平衡和正常血压的重要矿物质之一，现代人普遍钠多钾少，多吃蔬果是补钾的常规方式。</p>
+        <p class="small">肾功能异常者需按医生建议控制钾摄入。</p>
+      </div>
+      <div class="card">
+        <h3>④ 类黄酮（柚皮苷等）</h3>
+        <p>这类成分与柚子的微苦味和清香有关，也是植物自身用来抵御外界伤害的物质，被广泛研究其抗氧化等生理作用。</p>
+        <p class="small">注意：这类成分也会参与药物代谢，服药人群务必看后面的用药提醒。</p>
+      </div>
+      <div class="card">
+        <h3>⑤ 高水分、低能量密度</h3>
+        <p>同样吃饱腹感，柚子带给你的热量更低。控体重的人把它当代替甜点和饮料的选择，比硬忍更可持续。</p>
+      </div>
+      <div class="card">
+        <h3>⑥ 花青素 / 番茄红素（红心柚）</h3>
+        <p>红心柚的粉红色来自番茄红素、β-胡萝卜素等天然色素，颜色好看，也是抗氧化物质的来源之一。</p>
+        <p class="small">但维 C 含量未必比白柚高，别为颜色多付太多溢价。</p>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-top:28px; align-items:center">
+      <div class="card flat" style="background:#F7F5EE">
+        <h3>一句话总结</h3>
+        <p style="margin-bottom:0">
+          柚子是一款<b>「低负担、高水分、有纤维」</b>的日常水果，
+          适合代替高糖零食和含糖饮料；它是均衡饮食里的一个加分项，
+          不是包治百病的主角。
+        </p>
+      </div>
+      <figure class="pic h-240" style="margin:0">
+        <div class="pic-hint">
+          <b>图片位 03</b>
+          images/03-orchard.jpg
+          <span>建议 1200×800 · 枝头 / 果园 / 采摘场景</span>
+        </div>
+        <img src="images/03-orchard.jpg" alt="果园里挂果的柚子树" loading="lazy" onerror="this.style.display='none'">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 硒专题（核心区） ========== -->
+<section class="section se" id="selenium">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">🔎 微量元素专题</span>
+      <h2 style="color:#fff">硒：被低估的必需微量元素，<br>它在你身体里干的活，比你想的多</h2>
+      <p class="lead">
+        硒（Se）是人体必需的微量元素，需要量很小，但一旦长期不足，影响的是抗氧化、
+        甲状腺和免疫这些基础系统。它自己也合成不了，只能从食物里来。
+      </p>
+    </div>
+
+    <!-- 三个作用机制 -->
+    <div class="grid g3" style="margin-bottom:26px">
+      <div class="se-card">
+        <span class="se-num">1</span>
+        <h3>抗氧化防线的核心零件</h3>
+        <p>
+          硒是谷胱甘肽过氧化物酶（GPX）、硫氧还蛋白还原酶（TrxR）等抗氧化酶的活性中心成分。
+          这些酶负责把体内代谢产生的过氧化物清理掉，减轻氧化应激对细胞膜和 DNA 的损伤。
+        </p>
+      </div>
+      <div class="se-card">
+        <span class="se-num">2</span>
+        <h3>甲状腺正常工作的必需条件</h3>
+        <p>
+          把 T4 转化成活性更强的 T3，靠的是含硒的脱碘酶。甲状腺是人体硒浓度最高的器官之一，
+          所以硒营养状况与甲状腺功能密切相关。
+        </p>
+      </div>
+      <div class="se-card">
+        <span class="se-num">3</span>
+        <h3>免疫与生殖功能</h3>
+        <p>
+          硒参与免疫细胞功能的调节；睾丸和精子中存在多种硒蛋白，与精子形成和活力相关。
+          这也是为什么备孕人群的膳食指南会把硒列进去。
+        </p>
+      </div>
+    </div>
+
+    <!-- 摄入量 + 缺乏与过量 -->
+    <div class="grid g2" style="margin-bottom:26px">
+      <div class="panel">
+        <h4>每天该吃多少硒？（成人参考值）</h4>
+        <div class="kv"><span>中国成人推荐摄入量（RNI）</span><b>60 μg / 天</b></div>
+        <div class="kv"><span>美国成人推荐膳食供给量（RDA）</span><b>55 μg / 天</b></div>
+        <div class="kv"><span>成人可耐受最高摄入量（UL）</span><b class="hi">400 μg / 天</b></div>
+        <p class="small" style="margin-top:14px">
+          孕期、哺乳期需求略高；有甲状腺疾病或正在服药的人，请以医生意见为准。
+        </p>
+      </div>
+      <div class="grid" style="gap:16px">
+        <div class="panel">
+          <h4>吃不够会怎样</h4>
+          <p class="small" style="margin-bottom:8px">
+            在严重缺硒地区，历史上曾出现过与硒缺乏相关的地方性疾病，如克山病（心肌病变）和大骨节病（骨关节病变）。
+            我国通过改良土壤、膳食干预等措施已大幅控制。
+          </p>
+          <p class="small" style="margin:0">
+            一般人群只要饮食多样，通常不会严重缺硒，但长期单一饮食、极端节食的人需要留意。
+          </p>
+        </div>
+        <div class="warn">
+          <b>吃多了也不行。</b>
+          硒的安全范围不算宽。长期明显超量可能出现脱发、指甲变脆变形、蒜味口气、胃肠不适等表现。
+          因此不建议自行长期大剂量服用补硒产品。
+        </div>
+      </div>
+    </div>
+
+    <!-- 食物来源 -->
+    <div class="panel" style="margin-bottom:26px">
+      <h4>硒从哪儿来？真实世界的食物清单</h4>
+      <p class="small">以下为每 100g 可食部的近似参考值，实际含量受产地土壤影响很大。</p>
+      <p class="scroll-hint">👉 手机屏幕上可以左右滑动查看完整表格</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>食物</th><th>硒含量（约）</th><th>一句话点评</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>巴西坚果</td><td>约 68–91 μg / 颗</td><td>含量惊人，一天 1 颗就接近一天所需，别当零食整把吃</td></tr>
+            <tr><td>金枪鱼（熟）</td><td>约 90 μg / 100g</td><td>海产品是硒的优质来源</td></tr>
+            <tr><td>大比目鱼、沙丁鱼</td><td>约 45–47 μg / 100g</td><td>顺便补充优质蛋白与 omega-3</td></tr>
+            <tr><td>虾</td><td>约 40 μg / 100g</td><td>日常好操作</td></tr>
+            <tr><td>鸡蛋</td><td>约 15 μg / 个</td><td>最稳定的日常来源之一</td></tr>
+            <tr><td>瘦肉、禽肉、动物内脏</td><td>约 20–30 μg / 100g</td><td>内脏含量高但别过量</td></tr>
+            <tr><td>全谷物、糙米、豆类</td><td>少量（约 5–20 μg）</td><td>取决于产地土壤</td></tr>
+            <tr><td>蔬菜、水果（含柚子）</td><td>通常很低</td><td>水果不是补硒的主力，详见下方重点</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small" style="margin-top:14px; margin-bottom:0">
+        数据来源：美国国立卫生研究院膳食补充剂办公室（NIH ODS）Selenium 资料页等公开资料，为近似参考值。
+      </p>
+    </div>
+
+    <!-- 划重点：诚实说明 -->
+    <div class="flag">
+      <b>划重点：柚子不是补硒主力，这句话必须说清楚。</b>
+      <p style="margin:10px 0 0">
+        水果的硒含量普遍偏低，而且同一品种在不同产区能差出好几倍——因为植物里的硒来自土壤。
+        所以正确的说法是：<b>柚子的价值在维生素 C、膳食纤维、钾和低热量；
+        硒请从海产品、蛋、动物内脏、坚果里获取。</b>
+      </p>
+      <p style="margin:10px 0 0">
+        把两者放在一起讲的意义在于：它们是同一套「日常吃对」逻辑的两端——
+        用柚子替代高糖零食，用富硒食物补齐微量元素，两头都做到，才是完整的健康饮食。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 人群痛点 ========== -->
+<section class="section" id="persona">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">按年龄看痛点</span>
+      <h2>20~50 岁，你遇到的问题不一样，吃法也不该一样</h2>
+      <p class="lead">找到自己那一段，直接看结论。</p>
+    </div>
+
+    <div class="grid g3" style="align-items:stretch">
+
+      <!-- ===== 20~30 ===== -->
+      <div class="card persona">
+        <div class="pt">
+          <div class="icon">🧑‍💻</div>
+          <div>
+            <div class="age">20~30 岁</div>
+            <div class="tag">打工人 / 学生 / 刚工作</div>
+          </div>
+        </div>
+        <div class="quote"><p>下午三点，饿又不想胖，奶茶喝了有负罪感。</p></div>
+        <dl>
+          <dt>你的日常</dt>
+          <dd>外卖、熬夜、久坐，水果摄入常年不达标；一边想吃甜的，一边怕长胖怕长痘。</dd>
+          <dt>痛点</dt>
+          <dd>解馋和控热量像是对立的；办公室不方便处理麻烦的水果。</dd>
+          <dt>柚子怎么帮你</dt>
+          <dd>水分足、单位热量低（约 42 kcal/100g），自带明显的酸甜感，
+              很适合替代奶茶和甜点。剥好装保鲜盒，在工位上就能吃，不脏手不流汁。</dd>
+          <dt>建议这样吃</dt>
+          <dd>下午茶换成 150–200g 柚子果肉（约 63–84 kcal），配无糖茶或气泡水。</dd>
+        </dl>
+        <p class="small" style="margin-top:auto; padding-top:16px">
+          一句话：甜得刚好，热量只有一杯奶茶的零头。
+        </p>
+      </div>
+
+      <!-- ===== 30~40 ===== -->
+      <div class="card persona">
+        <div class="pt">
+          <div class="icon">👨‍👩‍👧</div>
+          <div>
+            <div class="age">30~40 岁</div>
+            <div class="tag">家庭采购主力 / 新手爸妈</div>
+          </div>
+        </div>
+        <div class="quote"><p>买水果最怕踩坑：不新鲜、不甜、娃不吃，最后全扔了。</p></div>
+        <dl>
+          <dt>你的日常</dt>
+          <dd>要考虑全家口味，孩子在长身体，老人牙口不好，预算还得控。</dd>
+          <dt>痛点</dt>
+          <dd>水果买多了放坏，买少了不够分；孩子爱吃零食不爱吃水果。</dd>
+          <dt>柚子怎么帮你</dt>
+          <dd>个头大、耐放，阴凉通风处能存一到两周，一次买两三个不慌；
+              酸甜接受度高，掰成小块孩子也愿意吃；纤维多、有饱腹感，比饼干糖果好得多。</dd>
+          <dt>建议这样吃</dt>
+          <dd>餐后半小时给全家分一瓣；孩子吃的话切成小块，注意别边跑边吃。</dd>
+        </dl>
+        <p class="small" style="margin-top:auto; padding-top:16px">
+          一句话：一个柚子全家分，比买一堆零食省心。
+        </p>
+      </div>
+
+      <!-- ===== 40~50 ===== -->
+      <div class="card persona">
+        <div class="pt">
+          <div class="icon">💼</div>
+          <div>
+            <div class="age">40~50 岁</div>
+            <div class="tag">体检报告开始有红字的人</div>
+          </div>
+        </div>
+        <div class="quote"><p>想吃点甜，又怕血糖血脂；想补营养，又怕交了智商税。</p></div>
+        <dl>
+          <dt>你的日常</dt>
+          <dd>开始关注三高、体重、免疫力和精力，也在意抗氧化和甲状腺这些词。</dd>
+          <dt>痛点</dt>
+          <dd>不敢随便吃甜食；正在长期吃药，怕食物和药冲突；肠胃不如从前敏感度降低。</dd>
+          <dt>柚子怎么帮你</dt>
+          <dd>低热量、高水分、有纤维和钾，是替代甜点的好选择。
+              但要记住一句关键提醒——<b>正在服用他汀类降脂药、部分降压药、抗心律失常药、免疫抑制剂等药物的人，
+              吃柚子/西柚前请先问医生或药师</b>，因为柚子中的成分会影响部分药物的代谢，可能让药效过强。</dd>
+          <dt>建议这样吃</dt>
+          <dd>一次 100–200g 果肉，放在两餐之间；不要用柚子汁代替水果；
+              补硒请走海产品、蛋、瘦肉、坚果这条路，别指望水果。</dd>
+        </dl>
+        <p class="small" style="margin-top:auto; padding-top:16px">
+          一句话：想吃甜又怕负担，柚子合适；但你在吃药，就先问一句医生。
+        </p>
+      </div>
+    </div>
+
+    <!-- 用药提醒：独立强调 -->
+    <div class="warn" style="margin-top:28px">
+      <b>⚠️ 用药人群必看（尤其 40 岁以上长期服药者）</b>
+      <p style="margin:8px 0 0">
+        柚子、西柚/葡萄柚中含有呋喃香豆素类成分，会抑制肠道中参与药物代谢的 CYP3A4 酶，
+        使部分药物在体内的浓度升高，可能增加不良反应风险。涉及面较广的包括他汀类降脂药、
+        部分降压药与抗心律失常药、部分镇静催眠药、免疫抑制剂等。
+      </p>
+      <p style="margin:8px 0 0">
+        这不是「少吃点就没事」的问题，个体差异很大。<b>请把「我常吃柚子」这句话告诉你的医生或药师，
+        由他们判断是否需要调整。</b>本页内容不构成医疗建议。
+      </p>
+    </div>
+
+    <!-- 场景图 -->
+    <div class="grid g3" style="margin-top:28px">
+      <figure class="pic h-220" style="margin:0">
+        <div class="pic-hint"><b>图片位 04</b>images/04-family.jpg<span>1200×800 · 家庭分享</span></div>
+        <img src="images/04-family.jpg" alt="一家人分享柚子" loading="lazy" onerror="this.style.display='none'">
+      </figure>
+      <figure class="pic h-220" style="margin:0">
+        <div class="pic-hint"><b>图片位 05</b>images/05-office.jpg<span>1200×800 · 办公室下午茶</span></div>
+        <img src="images/05-office.jpg" alt="办公室里的柚子下午茶" loading="lazy" onerror="this.style.display='none'">
+      </figure>
+      <figure class="pic h-220" style="margin:0">
+        <div class="pic-hint"><b>图片位 06</b>images/06-active.jpg<span>1200×800 · 运动 / 轻食</span></div>
+        <img src="images/06-active.jpg" alt="运动后的轻食搭配柚子" loading="lazy" onerror="this.style.display='none'">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 挑选与保存 ========== -->
+<section class="section" id="pick" style="background:#fff; border-top:1px solid var(--line); border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">挑选 · 保存 · 剥皮</span>
+      <h2>花同样的钱，挑到皮薄肉厚的那一个</h2>
+      <p class="lead">五句口诀 + 三个保存技巧 + 一个不脏手的剥法。</p>
+    </div>
+
+    <div class="grid g2" style="gap:32px; align-items:start">
+      <div>
+        <h3>挑选：看、掂、摸、闻</h3>
+        <div class="steps">
+          <div class="step">
+            <div>
+              <div class="t">看形状：上尖下宽、底部宽而平</div>
+              <div class="d">这类果形通常皮薄、果肉厚实；整个浑圆偏扁的，皮往往更厚。</div>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <div class="t">掂重量：同样大小选更压手的</div>
+              <div class="d">重说明水分足、果肉饱满。轻飘飘的多半放久了、失水了。</div>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <div class="t">摸表皮：光滑细腻、有弹性</div>
+              <div class="d">毛孔细小均匀的更好；表皮粗糙发硬、坑洼多的通常皮厚。</div>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <div class="t">闻香气：有清甜柚香，没有酒味</div>
+              <div class="d">有发酵味、酒味的说明放久了，别买。</div>
+            </div>
+          </div>
+          <div class="step">
+            <div>
+              <div class="t">按一按：微微回弹说明新鲜</div>
+              <div class="d">按下去凹陷不回弹，多半已经失水或内部变质。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <figure class="pic h-240" style="margin:0 0 22px">
+          <div class="pic-hint"><b>图片位 07</b>images/07-peel.jpg<span>1200×800 · 挑选 / 剥皮 / 保存</span></div>
+          <img src="images/07-peel.jpg" alt="挑选与剥柚子的过程" loading="lazy" onerror="this.style.display='none'">
+        </figure>
+        <div class="card">
+          <h3>保存 & 剥皮</h3>
+          <ul class="tick">
+            <li><b>没切开：</b>阴凉通风处可放 1–2 周，别暴晒、别闷在塑料袋里。</li>
+            <li><b>想放更久：</b>用纸巾包一层再装保鲜袋冷藏，可存 3–4 周。</li>
+            <li><b>已切开：</b>保鲜膜贴面密封冷藏，2–3 天内吃完，避免串味。</li>
+            <li><b>放久变甜是正常的：</b>失水后酸感降低，但再久就会干瘪发苦。</li>
+          </ul>
+          <p class="small" style="margin-bottom:0">
+            不脏手的剥法：顶部切十字 → 沿切口把皮整片撕下 → 分瓣去掉白瓤 → 用刀背沿筋膜划开，果肉整块落下。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 吃法 ========== -->
+<section class="section" id="eat">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">吃法灵感</span>
+      <h2>不止是剥开就吃，四种零门槛的吃法</h2>
+      <p class="lead">从最省事的到最有仪式感的，挑一个今天就试。</p>
+    </div>
+
+    <div class="grid g4">
+      <div class="card">
+        <h3>① 冰镇柚子瓣</h3>
+        <p>剥好的果肉冷藏半小时，酸甜感更突出。想更有层次，撒一小撮盐或话梅粉。</p>
+        <p class="small">最适合：追剧、加班、嘴馋的晚上。</p>
+      </div>
+      <div class="card">
+        <h3>② 柚子蜂蜜茶</h3>
+        <p>果肉加冰糖小火慢煮到透明，晾凉后拌入蜂蜜，冷藏保存；喝的时候取两勺冲温水。</p>
+        <p class="small">注意：含糖量不低，当甜品而非「养生水」。</p>
+      </div>
+      <div class="card">
+        <h3>③ 柚子鸡丝沙拉</h3>
+        <p>柚子瓣 + 鸡胸肉 + 生菜 + 坚果碎，淋油醋汁。酸甜解腻，还能顺便吃到坚果里的硒。</p>
+        <p class="small">最适合：减脂期想吃点有味道的。</p>
+      </div>
+      <div class="card">
+        <h3>④ 柚子气泡水</h3>
+        <p>柚子瓣捣出汁 + 无糖苏打水 + 冰块，喜欢的话加两片薄荷。</p>
+        <p class="small">比含糖饮料清爽得多，也更有自制感。</p>
+      </div>
+    </div>
+
+    <div class="grid g2" style="margin-top:28px; align-items:center">
+      <figure class="pic h-280" style="margin:0">
+        <div class="pic-hint"><b>图片位 08</b>images/08-drink.jpg<span>1200×800 · 柚子茶 / 气泡水 / 沙拉</span></div>
+        <img src="images/08-drink.jpg" alt="柚子蜂蜜茶与柚子气泡水" loading="lazy" onerror="this.style.display='none'">
+      </figure>
+      <div class="card flat" style="background:#F7F5EE">
+        <h3>顺手提醒三件事</h3>
+        <ul class="tick">
+          <li>榨成汁会丢掉大部分膳食纤维，饱腹感也变差，能直接吃就别榨。</li>
+          <li>蜂蜜、冰糖都是糖，柚子茶别当水喝。</li>
+          <li>白瓤和细纤维别全撕掉，那是纤维含量最高的部分。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="section" id="faq" style="background:#fff; border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">常见问答</span>
+      <h2>大家最想问的八个问题</h2>
+      <p class="lead">点开就能看，答案尽量说人话。</p>
+    </div>
+
+    <details>
+      <summary>吃柚子能补硒吗？</summary>
+      <div class="a">
+        <p>不能指望它。<b>水果的硒含量普遍很低</b>，而且同一品种在不同产地能差好几倍，因为植物中的硒取决于土壤。</p>
+        <p>想补硒，走这几条路更靠谱：海产品（金枪鱼、沙丁鱼、虾）、鸡蛋、瘦肉、动物内脏、坚果（巴西坚果一颗就可能含 68–91 μg）。成人每天大约需要 60 μg，最高不超过 400 μg，别盲目吃补剂。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>我正在吃药，能吃柚子吗？</summary>
+      <div class="a">
+        <p>这要看你在吃什么药。<b>柚子、西柚（葡萄柚）中的呋喃香豆素类成分会抑制 CYP3A4 酶</b>，可能让部分药物在体内浓度升高，增加不良反应风险，涉及他汀类降脂药、部分降压药与抗心律失常药、部分镇静催眠药、免疫抑制剂等。</p>
+        <p>最稳妥的做法：把「我常吃柚子」这句话告诉医生或药师，由他们判断。不要自己凭感觉试验。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>糖尿病 / 控糖的人能吃吗？</summary>
+      <div class="a">
+        <p>可以少量吃，但不能敞开吃。柚子水分高、升糖相对温和，但依然含果糖和葡萄糖。</p>
+        <p>建议：一次 100–200g 果肉，放在两餐之间而不是饭后立刻吃；<b>不要喝柚子汁</b>（纤维没了、升糖更快）；把它算进当天的总碳水里，并照常监测血糖。具体量请听你的医生或营养师。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>一天吃多少柚子合适？</summary>
+      <div class="a">
+        <p>《中国居民膳食指南》建议成年人每天吃 200–350g 水果，而且果汁不能替代新鲜水果。</p>
+        <p>如果你今天只吃柚子，200–300g 果肉（大约 3–5 瓣）是常见范围。但更推荐水果换着吃，营养来源才够宽。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>红心柚比白心柚更有营养吗？</summary>
+      <div class="a">
+        <p>各有侧重。红心柚的粉红色来自番茄红素、β-胡萝卜素等天然色素，这类抗氧化物质是它的加分项；但维生素 C 含量未必更高。</p>
+        <p>如果不为颜色多花太多钱，按口味选就行——能坚持吃下去的水果，才是好水果。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>柚子放久了为什么变甜？</summary>
+      <div class="a">
+        <p>采后存放时，果实的有机酸会逐渐消耗，水分也会轻微散失，酸感下降，吃起来就觉得更甜。</p>
+        <p>但这有个限度。放太久会干瘪、发苦，甚至内部变质。阴凉通风 1–2 周是舒适区，冷藏可以更久。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>小孩子能吃吗？</summary>
+      <div class="a">
+        <p>可以。把果肉切成小块，注意别让孩子边跑边吃，避免呛到；酸味明显的品种可以少量尝试。</p>
+        <p>另外，不建议给 1 岁以下婴儿喝任何果汁，包括柚子汁；这个年龄段以母乳/配方奶和辅食为主。</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>柚子皮的苦味是什么？能干嘛？</summary>
+      <div class="a">
+        <p>苦味主要来自柚皮苷等类黄酮，以及柠檬苦素类物质，集中在白瓤和皮层。这也是柚子清香味的来源。</p>
+        <p>常见用法：做柚子茶（皮切细丝焯水去苦后与果肉同煮）、晒干做除味包、擦洗油腻的灶台。需要注意的是，皮上可能有蜡或农残，食用前请用盐或小苏打仔细搓洗。</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ========== 参考资料 ========== -->
+<section class="section tight" id="refs">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">参考资料</span>
+      <h2>本页信息的主要来源</h2>
+      <p class="lead">涉及营养成分与硒的内容，均参照以下公开权威资料，数值为通用参考值。</p>
+    </div>
+    <div class="card flat">
+      <ul class="tick">
+        <li>中国营养学会《中国居民膳食营养素参考摄入量》——硒的推荐摄入量与可耐受最高摄入量</li>
+        <li>中国营养学会《中国居民膳食指南（2022）》——每日水果摄入量建议、果汁不能替代水果</li>
+        <li>美国国立卫生研究院膳食补充剂办公室（NIH ODS）硒专题资料页——硒的生理功能与食物含量数据</li>
+        <li>世界卫生组织（WHO）关于微量元素与健康的公开资料</li>
+        <li>《中国食物成分表》——柚子等食物的营养成分参考值</li>
+      </ul>
+      <p class="small" style="margin:14px 0 0">
+        各机构的最新版本可能更新，正式对外发布前建议以官方最新发布为准，并按你的实际产品检测报告调整数值。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 页脚（联系方式在这里改） ========== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h4>柚子科普馆</h4>
+        <p style="margin-bottom:8px">
+          好水果不需要夸张的宣传，把成分和吃法讲清楚就够了。
+        </p>
+      </div>
+      <div>
+        <h4>快速导航</h4>
+        <p style="margin:0; line-height:2">
+          <a href="#quick">3秒速览</a><br>
+          <a href="#nutrition">营养拆解</a><br>
+          <a href="#selenium">硒专题</a><br>
+          <a href="#pick">挑选保存</a>
+        </p>
+      </div>
+      <div>
+        <h4>联系我们</h4>
+        <p style="margin:0; line-height:2">
+          产地：<!-- 改成你的产地 -->福建 · 平和<br>
+          电话：<!-- 改成你的电话 -->138-0000-0000<br>
+          微信：<!-- 改成你的微信号 -->your-wechat-id
+        </p>
+      </div>
+    </div>
+
+    <div class="disclaimer">
+      <b style="color:#fff">免责声明：</b>
+      本页内容为一般性营养科普，不构成医疗、诊断或用药建议。
+      食物营养成分会因品种、产地、成熟度与检测方式不同而存在差异。
+      孕期、哺乳期、慢性病患者及正在服药的人群，请在食用前咨询医生或注册营养师。
+      柚子与部分药物存在相互作用风险，服药人群请务必咨询专业人士。
+    </div>
+
+    <div class="foot-bottom">
+      © <span id="year">2026</span> 柚子科普馆 · 本页面可直接编辑与再发布
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* 自动更新年份，不需要可以删掉这四行 */
+  (function(){
+    var y = document.getElementById('year');
+    if (y) y.textContent = new Date().getFullYear();
+  })();
+</script>
+
+</body>
+</html>
